@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+       
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            height: 50px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: right;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        
+        button.equal {
+            background-color: #ff5722;
+        }
+
+        button.clear {
+            background-color: #f44336;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="expression" id="expression" value="{{ result }}" placeholder="0" readonly>
+            <div class="buttons">
+                <button type="button" onclick="addToExpression('1')">1</button>
+                <button type="button" onclick="addToExpression('2')">2</button>
+                <button type="button" onclick="addToExpression('3')">3</button>
+                <button type="button" onclick="addToExpression('+')">+</button>
+
+                <button type="button" onclick="addToExpression('4')">4</button>
+                <button type="button" onclick="addToExpression('5')">5</button>
+                <button type="button" onclick="addToExpression('6')">6</button>
+                <button type="button" onclick="addToExpression('-')">-</button>
+
+                <button type="button" onclick="addToExpression('7')">7</button>
+                <button type="button" onclick="addToExpression('8')">8</button>
+                <button type="button" onclick="addToExpression('9')">9</button>
+                <button type="button" onclick="addToExpression('*')">*</button>
+
+                <button type="button" onclick="addToExpression('0')">0</button>
+                <button type="button" onclick="addToExpression('.')">.</button>
+                <button type="button" onclick="addToExpression('/')">/</button>
+                <button type="submit" class="equal">=</button>
+
+                <button type="button" class="clear" onclick="clearExpression()">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addToExpression(value) {
+            document.getElementById('expression').value += value;
+        }
+
+        function clearExpression() {
+            document.getElementById('expression').value = '';
+        }
+    </script>
+
+</body>
+</html>

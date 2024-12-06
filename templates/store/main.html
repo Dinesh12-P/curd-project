@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making Website</title>
+</head>
+<body>
+    {% include "store/navbar.html" with title="main" %}
+    <div class="container">    
+        {% block body  %} 
+        
+        {% comment %} <p>Created by Dinesh paudel</p> {% endcomment %}
+        {% endblock body %}
+    </div>
+</body>
+<footer>
+  <i class="fa-brands fa-square-instagram"></i>
+ 
+</footer>
+    </html>

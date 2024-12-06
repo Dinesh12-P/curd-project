@@ -1,0 +1,36 @@
+{% block title %} Don{% endblock title %}
+
+{% block body %}
+ <div class ="card">
+   <div class="card-header">
+      <h2> {{task.pk}}.{{task.title}}</h2>
+    </div>
+    <div class="card-body">
+        <p> <strong>Title:</strong>{{task.title}}</p>
+        <p> <strong>Description:</strong>{{task.description}}</p>
+        <p> <strong>Status:</strong>{{task.status}}</p>
+
+        {% if task.image%}
+        <img src="{{ task.image.url}}" class="rounded" alt="{{task.title}}"
+        style="width:200px; height:200px">
+        {% endif %} 
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-outline-info" href="{% url "table" %}"> Go Back </a>
+
+     </div>
+ </div>       
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
+

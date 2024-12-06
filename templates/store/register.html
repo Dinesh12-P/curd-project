@@ -1,0 +1,12 @@
+{% extends "store/main.html" %}
+
+{% block title %} register {% endblock title %}
+
+
+{% block body %}
+<form action="{% url "register" %}" method="post">
+{% csrf_token %}
+{{ form.as_p}}
+<button type="submit">Submit</button>
+</form>
+{% endblock body %}

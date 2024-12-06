@@ -1,0 +1,30 @@
+{% extends "store/main.html" %}
+
+{% block title %}create page {% endblock title %}
+
+
+{% block body%}
+
+
+<form action ='{% url "create" %}' method='POST' >
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputtext" class="form-label">Title</label>
+      <input type="text" name ='title' class="form-control" id="exampleInputtext" aria-describedby="emailHelp" required>
+      {% comment %} <div id="textHelp" class="form-text">We'll never share your email with anyone else.</div> {% endcomment %}
+    </div>
+    <div class="form-floating">
+        <textarea class="form-control" name ='description' placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
+        <label for="floatingTextarea">Description</label>
+    </div>
+    {% comment %} <div class="mb-3 form-check">
+      <input type="checkbox" name ='status' class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Status</label>
+    </div> {% endcomment %}
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+ 
+  
+  
+
+{%endblock body %}
